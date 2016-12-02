@@ -1,8 +1,8 @@
-
+var bodyParser = require('body-parser')
 var express = require('express');
 var logger = require('./logger');
 var app = express();
-var posts = require('./routes/posts');
+var records = require('./routes/records');
 
 
 app.use(function (request, response, next) {
@@ -14,7 +14,9 @@ app.use(function (request, response, next) {
 app.use(logger);
 //app.use(express.static('public'));
 
-app.use('/posts', posts);
+app.use('/api', records);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.listen(3700, function () {
     console.log('Listening on port 3700');

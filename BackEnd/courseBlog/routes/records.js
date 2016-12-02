@@ -1,30 +1,31 @@
 var express = require('express');
 var router = express.Router();
-var models = require('../models/courseBlogDB');
+var models = require('../models/student');
 var bodyParser = require('body-parser');
 var parseUrlencoded = bodyParser.urlencoded({extended: false});
 var parseJSON = bodyParser.json();
 
-router.route('/')
-    .post(parseUrlencoded, parseJSON, function (request, response) {
-        var post = new models.Posts(request.body.post);
+// Student records route
+router.route('/records')
+    // Get all the student records
+    .get(function (request, response) {
+            models.student.find(function (error, posts) {
+                if (error) response.send(error);
+                response.json({post: posts});
+            });
+    })
+    .post(function (request, response) {
+        var post = new models.student(request.body.post);
         post.save(function (error) {
             if (error) response.send(error);
             response.json({post: post});
         });
-
-
     })
-    .get(parseUrlencoded, parseJSON, function (request, response) {
-            models.Posts.find(function (error, posts) {
-                if (error) response.send(error);
-                response.json({post: posts});
-            });
-    });
 
-router.route('/:post_id')
-    .get(parseUrlencoded, parseJSON, function (request, response) {
-        models.Posts.findById(request.params.post_id, function (error, post) {
+// Specific student record route
+router.route('/records:id')
+    .get(function (request, response) {
+        models.student.findById(request.params.post_id, function (error, post) {
             if (error) {
                 response.send({error: error});
             }
@@ -33,8 +34,8 @@ router.route('/:post_id')
             }
         });
     })
-    .put(parseUrlencoded, parseJSON, function (request, response) {
-        models.Posts.findById(request.params.post_id, function (error, post) {
+    .put(function (request, response) {
+        models.student.findById(request.params.post_id, function (error, post) {
             if (error) {
                 response.send({error: error});
             }
@@ -52,8 +53,8 @@ router.route('/:post_id')
             }
         });
     })
-    .delete(parseUrlencoded, parseJSON, function (request, response) {
-        models.Posts.findByIdAndRemove(request.params.post_id,
+    .delete(function (request, response) {
+        models.student.findByIdAndRemove(request.params.post_id,
             function (error, deleted) {
                 if (!error) {
                     response.json({post: deleted});
