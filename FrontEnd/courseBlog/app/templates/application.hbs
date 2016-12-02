@@ -1,0 +1,32 @@
+<div class="ui segment container">
+    <img class="ui small centered  image" src="/assets/images/UWO Stacked.png">
+    <div class="ui inverted menu">
+        <a class="item">
+            <i class="home icon"></i>
+          {{#link-to 'posts'}}Home{{/link-to}}
+        </a>
+        <a class="item">
+            {{#link-to 'contact'}}Contact{{/link-to}}
+        </a>
+        <div class="right menu">
+            <a class="item">
+              {{#link-to 'about'}}About{{/link-to}}
+            </a>
+        </div>
+    </div>
+
+{{outlet}}
+
+
+    <footer>
+        <div class="ui violet inverted grid segment">
+            <div class="thirteen wide column">
+                © Copyright - Dr. Abdelkader Ouda
+            </div>
+            <div class="three wide column">
+                <img class="ui right aligned container tiny image" src="/assets/images/UWO Stacked_Rev.png">
+            </div>
+        </div>
+    </footer>
+
+</div>

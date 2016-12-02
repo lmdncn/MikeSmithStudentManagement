@@ -1,0 +1,24 @@
+<<h2> Welcome to SE3352a's Blog</h2>
+
+<div class="ui bulleted list">
+  <br>
+  {{#each model as |onePost|}}
+    <div class="item" >
+      <div class="ui grid">
+        <div class="ten wide column">
+          <li>{{#link-to 'post' onePost.id}}{{onePost.title}}
+          {{/link-to}}</li>
+
+        </div>
+        <div class="six wide column">
+          {{delete-post post=onePost}}
+        </div>
+      </div>
+
+    </div>
+  {{/each}}
+</div>
+<br>
+{{add-new-post}}
+<br><br><br>
+
