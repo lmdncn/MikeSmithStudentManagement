@@ -22,11 +22,11 @@ export default Ember.Component.extend({
         post.save();  // => PATCH to /posts/:post_id
       });
       this.set('isEditing', false);
-      this.get('routing').transitionTo('posts' );
+      this.get('routing').transitionTo('api/records' );
     },
 
     cancel: function(){
-      this.get('routing').transitionTo('posts' );
+      this.get('routing').transitionTo('api/records' );
     }
 
   }
