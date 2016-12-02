@@ -1,0 +1,14 @@
+/*This is the application css file*/
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    color:#6435C9;
+    text-align:center;
+    font-family: 'Poppins', sans-serif;
+}
+
