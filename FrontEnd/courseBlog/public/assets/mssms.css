@@ -10,5 +10,14 @@ h1{
     color:#6435C9;
     text-align:center;
     font-family: 'Poppins', sans-serif;
+    margin-top: 2px;
 }
 
+div.ui.container{
+margin:0;
+width:100%;
+}
+
+div#mainView{
+height:500px;
+}

@@ -1,23 +1,36 @@
 <div class="ui segment container">
+   
+   <header>
     <img class="ui small centered  image" src="/assets/images/mikesmith.png">
       <h1>The Mike Smith Student Management System</h1>
+      </header>
+      
+      <nav>
     <div class="ui inverted menu">
         <a class="item">
+        {{#link-to 'home' class="button"}}
             <i class="home icon"></i>
-          {{#link-to 'posts'}}Home{{/link-to}}
+            {{/link-to}}
         </a>
+        {{#link-to 'student' class="button"}}
         <a class="item">
-            {{#link-to 'contact'}}Contact{{/link-to}}
+        Student View
         </a>
+        {{/link-to}}
         <div class="right menu">
+         {{#link-to 'about' class="about"}}
             <a class="item">
-              {{#link-to 'about'}}About{{/link-to}}
+            About
             </a>
+            {{/link-to}}
         </div>
     </div>
+    </nav>
+    
+      <div id="mainView">
 
 {{outlet}}
-
+</div>
 
     <footer>
         <div class="ui violet inverted grid segment">
