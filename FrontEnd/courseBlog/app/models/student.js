@@ -8,7 +8,4 @@ export default DS.Model.extend({
     dateOfBirth: DS.attr('date'),
     residency: DS.attr('string'),
     gender: DS.attr('string')
-
-````
-
 });
