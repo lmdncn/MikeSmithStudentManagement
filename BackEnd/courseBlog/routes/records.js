@@ -9,15 +9,17 @@ var parseJSON = bodyParser.json();
 // Student records route
 router.route('/records')
     // Get all the student records
-    .get(function (request, response) {
-            studentRecord.find(function (error, posts) {
-                if (error) response.send(error);
-                response.json({post: posts});
+    .get(function (req, res) {
+            studentRecord.find(function (err, record) {
+                if (err) {
+                    return res.send(500, err);
+                }
+                return res.json(record);
             });
-    })
+    });
 
 // Specific student record route
-router.route('/records:id')
+router.route('/records/:id')
     .get(function (request, response) {
         studentRecord.findById(request.params.post_id, function (error, post) {
             if (error) {
