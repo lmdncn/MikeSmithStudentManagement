@@ -15,14 +15,12 @@ router.get('/students', function(req, res){
 
 // Specific student record route
 router.route('/students/:id')
-    .get(function (request, response) {
-        Student.findById(request.params.post_id, function (error, post) {
+    .get(function (req, res) {
+        Student.find({number: req.params.id}, function (error, records) {
             if (error) {
-                response.send({error: error});
+                res.send({error: error});
             }
-            else {
-                response.send({post: post});
-            }
+            res.json(records);
         });
     })
     .put(function (request, response) {
@@ -43,15 +41,6 @@ router.route('/students/:id')
                 });
             }
         });
-    })
-    .delete(function (request, response) {
-        studentRecord.findByIdAndRemove(request.params.post_id,
-            function (error, deleted) {
-                if (!error) {
-                    response.json({post: deleted});
-                }
-            }
-        );
     });
 
     return router;
