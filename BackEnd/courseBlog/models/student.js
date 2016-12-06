@@ -5,7 +5,7 @@ var studentSchema = new mongoose.Schema(
         number: Number,
         firstName: String,
         lastName: String,
-        DOB: Date,
+        dob: Date,
         residency: String,
         gender: String
     }

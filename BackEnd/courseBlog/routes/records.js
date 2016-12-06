@@ -1,12 +1,15 @@
+var mongoose = require('mongoose');
 var Student = require('../models/student');
 var bodyParser = require('body-parser');
 
 module.exports = function(router){
-// Student records route
 
+// Student records route
 router.get('/students', function(req, res){
     Student.find({},function(err, students){
-        if (err) res.send(err);
+        if (err) {
+            res.json(err);
+        }
         res.json(students);
     });
 });
@@ -15,31 +18,34 @@ router.get('/students', function(req, res){
 
 // Specific student record route
 router.route('/students/:id')
-    .get(function (req, res) {
-        Student.find({number: req.params.id}, function (error, records) {
-            if (error) {
-                res.send({error: error});
+    // Find a student's record by their student number
+    .get(function(req, res) {
+        Student.find({number: req.params.id}, function (err, student) {
+            if (err) {
+                res.json(err);
             }
-            res.json(records);
+            res.json(student);
         });
     })
-    .put(function (request, response) {
-        Student.findById(request.params.post_id, function (error, post) {
-            if (error) {
-                response.send({error: error});
+    // Update a student's record
+    .put(function(req, res) {
+        Student.findOne({number: req.params.id}, function (err, student) {
+            if (err) {
+                res.json(err);
             }
-            else {
-                post.title = request.body.post.title;
-                post.body = request.body.post.body;
-                post.save(function (error) {
-                    if (error) {
-                        response.send({error: error});
-                    }
-                    else {
-                        response.send({post: post});
-                    }
-                });
-            }
+            student.number = req.body.number;
+            student.firstName = req.body.firstName;
+            student.lastName = req.body.lastName;
+            student.dob = req.body.dob;
+            student.residency = req.body.residency;
+            student.gender = req.body.gender;
+            
+            student.save(function(err, student) {
+                if (err) {
+                    res.json(err);
+                }
+                res.json(student);
+            });
         });
     });
 
