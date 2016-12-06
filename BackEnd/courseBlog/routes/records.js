@@ -16,7 +16,7 @@ router.get('/students', function(req, res){
 // Specific student record route
 router.route('/students/:id')
     .get(function (req, res) {
-        Student.find({number: req.params.id}, function (error, records) {
+        Student.findById(req.params.id,function (error, records) {
             if (error) {
                 res.send({error: error});
             }
