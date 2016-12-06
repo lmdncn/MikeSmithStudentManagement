@@ -3,12 +3,14 @@ var bodyParser = require('body-parser');
 
 module.exports = function(router){
 // Student records route
+
 router.get('/records', function(req, res){
     studentRecord.find(function(err, records){
         if (err) res.send(err);
         res.json(records);
     });
 });
+
 
 
 // Specific student record route

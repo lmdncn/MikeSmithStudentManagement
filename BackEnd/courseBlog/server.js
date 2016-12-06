@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 8000;
 var logger = require('./logger');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var router = express.Router();
