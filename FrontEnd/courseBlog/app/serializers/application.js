@@ -1,8 +1,8 @@
 import DS from 'ember-data';
 
-export default DS.RESTSerializer.extend({
+export default DS.JSONSerializer.extend({
   primaryKey: '_id',
-   serializeId: function(id) {
-        return id.toString();
-    }
+//    serializeId: function(id) {
+//         return id.toString();
+//     }
 });
