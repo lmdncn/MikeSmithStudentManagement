@@ -15,12 +15,17 @@ h1{
     cursor:pointer;
 }
 
+
 div.ui.container{
 margin:0;
 width:100%;
 }
 
 div#mainView{
-height:500px;
+min-height:600px;
 padding:30px;
+}
+
+div.dummy-row{
+    height: 25%;
 }
