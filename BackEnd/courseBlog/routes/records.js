@@ -20,7 +20,7 @@ router.get('/students', function(req, res){
 router.route('/students/:id')
     // Find a student's record by their student number
     .get(function(req, res) {
-        Student.find({number: req.params.id}, function (err, student) {
+        Student.findOne({number: req.params.id}, function (err, student) {
             if (err) {
                 res.json(err);
             }
