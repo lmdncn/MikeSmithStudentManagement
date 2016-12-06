@@ -1,13 +1,16 @@
 <div class="ui segment container">
    
-   <header>      {{#link-to 'home' class="button"}}
+   <header >      
+       
+       {{#link-to 'home'}}
     <img class="ui small centered  image" src="/assets/images/mikesmith.png">
-      <h1>The Mike Smith Student Management System</h1> {{/link-to}}
+      <h1>The Mike Smith Student Management System</h1> 
+      {{/link-to}}
       </header>
         
       <nav>
     <div class="ui inverted menu">
-
+ 
         <a class="item"> 
             <i class="edit icon"></i>
             Save
@@ -24,6 +27,16 @@
             <i class="caret left icon"></i>
             Previous Record
         </a>
+        
+
+            {{#link-to 'home'}}
+        <a class="item" >
+        
+        Student View
+         
+        </a>  {{/link-to}}
+     
+
         <a class="item"> 
             Next Record
             <i class="caret right icon"></i>
@@ -32,44 +45,40 @@
             Last Record
             <i class="step forward icon"></i>
         </a>
+
+         {{#link-to 'list'}}
         <a class="item"> 
-            <i class="list layout icon"></i>
             All Records
+            <i class="list layout icon"></i>
         </a>
-        <a class="item"> 
-            <i class="search icon"></i>
-             Find Record
-        </a>
+        {{/link-to}}
+
+
+
+        
         <div class="right menu">
+
             <a class="item"> 
+            <div class="ui search">
+                <div class="ui icon input">
+            <input type="text" class="prompt" placeholder="Student Id...">
+            <i class="search icon"></i>
+              </div>
+              <div class="results"></div>
+            </div>
+
+        </a>
+
+              {{#link-to 'about' class="button"}}
+            <a class="item"> 
+               
                 <i class="help circle icon"></i>
                 Help
             </a>
+               {{/link-to}}
         </div>
-        <!--<a class="item">
-        {{#link-to 'home' class="button"}}
-            <i class="home icon"></i>
-            {{/link-to}}
-        </a>
 
-          {{#link-to 'list' class="button"}}
-        <a class="item">
-        Student List
-        </a>
-        {{/link-to}}
-
-        {{#link-to 'student' class="button"}}
-        <a class="item">
-        Student View
-        </a>
-        {{/link-to}}
-        <div class="right menu">
-         {{#link-to 'about' class="about"}}
-            <a class="item">
-            About
-            </a>
-            {{/link-to}}
-        </div> -->
+     
     </div>
     </nav>
 
