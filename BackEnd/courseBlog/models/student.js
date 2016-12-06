@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var studentSchema = mongoose.Schema(
+var studentSchema = new mongoose.Schema(
     {
         StudentNumber: String,
         firstName: String,
@@ -11,4 +11,4 @@ var studentSchema = mongoose.Schema(
     }
 );
 
-mongoose.model('studentRecord', studentSchema);
+module.exports = mongoose.model('student', studentSchema);

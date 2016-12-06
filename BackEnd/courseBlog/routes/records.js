@@ -1,20 +1,15 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-var studentRecord = mongoose.model('studentRecord');
+var studentRecord = require('../models/student');
 var bodyParser = require('body-parser');
-var parseUrlencoded = bodyParser.urlencoded({extended: false});
-var parseJSON = bodyParser.json();
 
+module.exports = function(router){
 // Student records route
-router.route('/records')
-    // Get all the student records
-    .get(function (request, response) {
-            studentRecord.find(function (error, posts) {
-                if (error) response.send(error);
-                response.json({post: posts});
-            });
-    })
+router.get('/records', function(req, res){
+    studentRecord.find(function(err, records){
+        if (err) res.send(err);
+        res.json(records);
+    });
+});
+
 
 // Specific student record route
 router.route('/records/:id')
@@ -57,4 +52,6 @@ router.route('/records/:id')
         );
     });
 
-module.exports = router;
+    return router;
+
+}
