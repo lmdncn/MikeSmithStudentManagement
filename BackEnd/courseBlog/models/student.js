@@ -11,14 +11,4 @@ var studentSchema = mongoose.Schema(
     }
 );
 
-var studentRecord = mongoose.model('studentRecord', studentSchema);
-
-mongoose.connect('mongodb://localhost/courseBlog');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    exports.studentRecord = studentRecord;
-});
-
-
-
+mongoose.model('studentRecord', studentSchema);

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var models = require('../models/student');
+var mongoose = require('mongoose');
+var studentRecord = mongoose.model('studentRecord');
 var bodyParser = require('body-parser');
 var parseUrlencoded = bodyParser.urlencoded({extended: false});
 var parseJSON = bodyParser.json();
@@ -9,23 +10,16 @@ var parseJSON = bodyParser.json();
 router.route('/records')
     // Get all the student records
     .get(function (request, response) {
-            models.student.find(function (error, posts) {
+            studentRecord.find(function (error, posts) {
                 if (error) response.send(error);
                 response.json({post: posts});
             });
-    })
-    .post(function (request, response) {
-        var post = new models.student(request.body.post);
-        post.save(function (error) {
-            if (error) response.send(error);
-            response.json({post: post});
-        });
     })
 
 // Specific student record route
 router.route('/records:id')
     .get(function (request, response) {
-        models.student.findById(request.params.post_id, function (error, post) {
+        studentRecord.findById(request.params.post_id, function (error, post) {
             if (error) {
                 response.send({error: error});
             }
@@ -35,7 +29,7 @@ router.route('/records:id')
         });
     })
     .put(function (request, response) {
-        models.student.findById(request.params.post_id, function (error, post) {
+        studentRecord.findById(request.params.post_id, function (error, post) {
             if (error) {
                 response.send({error: error});
             }
@@ -54,7 +48,7 @@ router.route('/records:id')
         });
     })
     .delete(function (request, response) {
-        models.student.findByIdAndRemove(request.params.post_id,
+        studentRecord.findByIdAndRemove(request.params.post_id,
             function (error, deleted) {
                 if (!error) {
                     response.json({post: deleted});
