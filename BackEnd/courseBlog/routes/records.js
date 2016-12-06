@@ -23,7 +23,7 @@ router.route('/records')
     })
 
 // Specific student record route
-router.route('/records:id')
+router.route('/records/:id')
     .get(function (request, response) {
         models.student.findById(request.params.post_id, function (error, post) {
             if (error) {
