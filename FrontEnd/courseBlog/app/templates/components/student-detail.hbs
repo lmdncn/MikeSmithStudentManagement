@@ -1,0 +1,143 @@
+{{yield}}
+
+
+
+<br><br>
+
+{{#if isEditing}}
+
+<form class="ui form">
+
+    <div class="ui stackable two column grid container">
+        <div class="column"> 
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> Student Number: </label> </div>
+                <div class="six wide column "> <input type="number" name="student-num" placeholder="Student Number"  value="{{selectedStudent.number}}"> </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> First Name: </label> </div>
+                <div class="eight wide column "> <input type="text" name="first-name" placeholder="First Name" value="{{selectedStudent.firstName}}"> </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> Last Name: </label> </div>
+                <div class="eight wide column "> <input type="text" name="last-name" placeholder="Last Name" value="{{selectedStudent.lastName}}"> </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> Date of Birth: </label> </div>
+                <div class="ten wide column "> <input type="text" name="dob" placeholder="Date of Birth" value="{{selectedStudent.DOB}}"> </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> Residency: </label> </div>
+                <div class="ten wide column">
+                    <select value="{{selectedStudent.residency}}" class="ui dropdown">
+                        <option value="">Residency</option>
+                        <option value="1">Canadian/Native</option>
+                        <option value="0">International</option>
+                        <option value="2">Permanent</option>
+                    </select>
+                </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> Gender: </label> </div>
+                <div class="six wide column">  
+                    <select value="{{selectedStudent.gender}}" class="ui dropdown">
+                        <option value="">Gender</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="0">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <br> <br>
+        </div>
+        <div class="column">
+            <div class="ui stackable centered two column grid">
+                <div class="column"> </div>
+            </div>
+            <div class="ui stackable centered two column grid">
+                <div class="column"> </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="right floated ten wide column" style="border: 1px solid black;">
+             
+                    <img src={{imgUrl}} alt="Picture Of Student">
+      
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <button class="ui button" {{action 'save' selectedStudent.id}}>Save</button>
+
+  <button class="ui button" {{action 'cancel' selectedStudent.number}}> Cancel </button>
+
+</form>
+
+{{else}}
+
+ <div class="ui stackable two column grid container">
+        <div class="column"> 
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> Student Number: </label> </div>
+                <div class="six wide column "> <input type="number" readonly="" name="student-num" placeholder="Student Number"  value="{{selectedStudent.number}}"> </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> First Name: </label> </div>
+                <div class="eight wide column "> <input type="text" readonly="" name="first-name" placeholder="First Name" value="{{selectedStudent.firstName}}"> </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> Last Name: </label> </div>
+                <div class="eight wide column "> <input type="text"  readonly=""name="last-name" placeholder="Last Name" value="{{selectedStudent.lastName}}"> </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> Date of Birth: </label> </div>
+                <div class="ten wide column "> <input type="text"  readonly="" name="dob" placeholder="Date of Birth" value="{{selectedStudent.DOB}}"> </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> Residency: </label> </div>
+                <div class="ten wide column">
+                    <select value="{{selectedStudent.residency}}"  class="ui disabled dropdown">
+                        <option value="">Residency</option>
+                        <option value="1">Canadian/Native</option>
+                        <option value="0">International</option>
+                        <option value="2">Permanent</option>
+                    </select>
+                </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="column "> <label> Gender: </label> </div>
+                <div class="six wide column">  
+                    <select value="{{selectedStudent.gender}}" class="ui disabled dropdown">
+                        <option value="">Gender</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="0">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <br> <br>
+            
+        </div>
+        <div class="column">
+            <div class="ui stackable centered two column grid">
+                <div class="column"> </div>
+            </div>
+            <div class="ui stackable centered two column grid">
+                <div class="column"> </div>
+            </div>
+            <div class="ui stackable three column grid">
+                <div class="right floated ten wide column" style="border: 1px solid black;">
+
+               <img src={{imgUrl}} alt="Picture Of Student">
+               
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <button class="ui button" {{action 'edit'}}> Edit </button>
+
+
+{{/if}}
