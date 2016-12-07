@@ -24,8 +24,6 @@ didReceiveAttrs:function() {
     },
 
 
-
-
   actions: {
     edit: function(){
       this.set('isEditing', true);
