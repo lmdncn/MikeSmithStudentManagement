@@ -2,6 +2,23 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+
+  store: Ember.inject.service(),
+  routing: Ember.inject.service('-routing'),
+
+  actions: {
+  searchStudent:function(){
+    console.log("Searching");
+
+    var temp =  $('#search').val();
+    if(temp >10000){
+      this.get('routing').transitionTo('/home/'+ temp);
+
+  }
+  }
+  }
+
+
 // doSearch: function() {
 // // the current value of the text field
 // 	var query = this.get('search');

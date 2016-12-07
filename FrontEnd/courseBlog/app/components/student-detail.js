@@ -12,17 +12,17 @@ export default Ember.Component.extend({
 
   imgUrl:"/assets/images/malestudent.png",
 
-// didReceiveAttrs:function() {
+didReceiveAttrs:function() {
 
-//       if (1 == this.get('selectedStudent.gender')) {
-//         this.set('imgUrl', "/assets/images/malestudent.png");
-//       }
+      if (1 == this.get('selectedStudent.gender')) {
+        this.set('imgUrl', "/assets/images/malestudent.png");
+      }
 
-//       else{
-//          this.set('imgUrl', "/assets/images/femalestudent.png");
-//       }
-//     }));
-//   },
+      else{
+         this.set('imgUrl', "/assets/images/femalestudent.png");
+      }
+    },
+
 
 
 
@@ -60,10 +60,12 @@ save: function(id) {
             this.set('selectedStudent.gender',$('#gender').val())
             this.set('selectedStudent.DOB',$('#dob').val())
             this.set('selectedStudent.residency',$('#residency').val())
+            this.didReceiveAttrs();
 
         },
          cancel: function(number){
         this.set('isEditing', false);
+        
     }
 
     },
