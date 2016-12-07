@@ -24,7 +24,7 @@
             </div>
             <div class="ui stackable three column grid">
                 <div class="column "> <label> Date of Birth: </label> </div>
-                <div class="ten wide column "> <input id="dob" type="text" name="dob" placeholder="Date of Birth" value="{{selectedStudent.DOB}}"> </div>
+                <div class="ten wide column "> <input id="dob" type="date" name="dob" placeholder="Date of Birth" value="{{selectedStudent.DOB}}"> </div>
             </div>
             <div class="ui stackable three column grid">
                 <div class="column "> <label> Residency: </label> </div>
@@ -32,7 +32,7 @@
                     <select id="residency" value="{{selectedStudent.residency}}" class="ui dropdown">
                         <option value="">Residency</option>
                         <option value="1">Canadian/Native</option>
-                        <option value="0">International</option>
+                        <option value="3">International</option>
                         <option value="2">Permanent</option>
                     </select>
                 </div>
@@ -92,7 +92,7 @@
             </div>
             <div class="ui stackable three column grid">
                 <div class="column "> <label> Date of Birth: </label> </div>
-                <div class="ten wide column "> <input type="text" id="dob-s"  readonly="" name="dob" placeholder="Date of Birth" value="{{selectedStudent.DOB}}"> </div>
+                <div class="ten wide column "> <input type="date" id="dob-s"  readonly="" name="dob" placeholder="Date of Birth" value="{{selectedStudent.DOB}}"> </div>
             </div>
             <div class="ui stackable three column grid">
                 <div class="column "> <label> Residency: </label> </div>
@@ -100,7 +100,7 @@
                     <select id="residency-s" value="{{selectedStudent.residency}}"  class="ui disabled dropdown">
                         <option value="">Residency</option>
                         <option value="1">Canadian/Native</option>
-                        <option value="0">International</option>
+                        <option value="3">International</option>
                         <option value="2">Permanent</option>
                     </select>
                 </div>

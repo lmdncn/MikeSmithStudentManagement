@@ -44,6 +44,28 @@ export default Ember.Component.extend({
 
   undoChange:function(){
     console.log("undoChange");
+    
+    var temp = JSON.parse(localStorage.getItem("undo"));
+
+    console.log("Reseting to" + JSON.stringify(temp));
+
+    $.ajax({
+      url: 'http://localhost:3700/api/students/' + temp.number,
+      type: 'PUT',
+      data: temp,
+      success: function(temp) {
+      }
+    });
+
+    this.set('isEditing', false);
+    this.set('selectedStudent.number',temp.number)
+    this.set('selectedStudent.firstName',temp.firstName)
+    this.set('selectedStudent.lastName',temp.lastName)
+    this.set('selectedStudent.gender',temp.gender)
+    this.set('selectedStudent.DOB',temp.DOB)
+    this.set('selectedStudent.residency',temp.residency)
+    this.didReceiveAttrs();
+    $('#cancel-button').trigger('click');
 
   },
 

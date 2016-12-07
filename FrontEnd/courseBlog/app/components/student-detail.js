@@ -33,6 +33,13 @@ save: function(id) {
 
             console.log($('#first-name').val());
 
+
+              //Save For Undo =================================
+              var temp = this.get('selectedStudent');
+              console.log("logged" + JSON.stringify(temp));
+              localStorage.setItem("undo", JSON.stringify(temp));
+
+
             var data = {
                 number: id,
                 firstName: $('#first-name').val(),

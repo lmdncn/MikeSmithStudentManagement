@@ -36,7 +36,7 @@ router.route('/students/:id')
             student.number = req.body.number;
             student.firstName = req.body.firstName;
             student.lastName = req.body.lastName;
-            student.dob = req.body.dob;
+            student.DOB = req.body.DOB;
             student.residency = req.body.residency;
             student.gender = req.body.gender;
             

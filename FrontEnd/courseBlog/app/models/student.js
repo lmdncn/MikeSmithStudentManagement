@@ -6,7 +6,7 @@ export default DS.Model.extend({
 	firstName: DS.attr('string'),
 	lastName: DS.attr('string'),
     gender: DS.attr('string'),
-    DOB: DS.attr('date'),
+    DOB: DS.attr('string'),
     residency: DS.attr('string')
   
 });
