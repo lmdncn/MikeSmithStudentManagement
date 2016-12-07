@@ -13,14 +13,16 @@
 </thead>
 <tbody>
   {{#each model as |student|}} 
-<tr>
+  {{#link-to 'home' student.number tagName="tr"}}
+
 <td>{{student.number}}</td>
 <td>{{student.firstName}} {{student.lastName}}</td>
 <td>{{student.DOB}}</td>
 <td>{{student.residency}}</td>
 <td>{{student.gender}}</td>
 
-</tr>
+
+{{/link-to}}
 {{/each}}
 </tbody>
  <tfoot>
