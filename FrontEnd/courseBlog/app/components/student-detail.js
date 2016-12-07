@@ -12,6 +12,19 @@ export default Ember.Component.extend({
 
   imgUrl:"/assets/images/malestudent.png",
 
+// didReceiveAttrs:function() {
+
+//       if (1 == this.get('selectedStudent.gender')) {
+//         this.set('imgUrl', "/assets/images/malestudent.png");
+//       }
+
+//       else{
+//          this.set('imgUrl', "/assets/images/femalestudent.png");
+//       }
+//     }));
+//   },
+
+
 
   actions: {
     edit: function(){
@@ -22,11 +35,15 @@ export default Ember.Component.extend({
       this.set('isEditing', false);
       var myStore = this.get('store');
 
+
       var self = this;
-      myStore.findRecord('student',id).then(function(post) {
-        post.set('fistName',self.get('selectedStudent.fistName'));
-        post.set('lastName', self.get('selectedStudent.lastName'));
-        post.save();  // => PATCH to /posts/:post_id
+      myStore.findRecord('student',id).then(function(put) {
+        put.set('fistName',self.get('selectedStudent.fistName'));
+        put.set('lastName', self.get('selectedStudent.lastName'));
+        put.set('DOB', self.get('selectedStudent.DOB'));
+        put.set('residency', self.get('selectedStudent.residency'));
+        put.set('gender', self.get('selectedStudent.gender'));
+        put.save();  // => PATCH to /puts/:put_id
       });
 
 

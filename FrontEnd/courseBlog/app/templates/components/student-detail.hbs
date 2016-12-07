@@ -12,7 +12,7 @@
         <div class="column"> 
             <div class="ui stackable three column grid">
                 <div class="column "> <label> Student Number: </label> </div>
-                <div class="six wide column "> <input type="number" name="student-num" placeholder="Student Number"  value="{{selectedStudent.number}}"> </div>
+                <div class="six wide column "> <input type="number" readonly="" name="student-num" placeholder="Student Number"  value="{{selectedStudent.number}}"> </div>
             </div>
             <div class="ui stackable three column grid">
                 <div class="column "> <label> First Name: </label> </div>
@@ -68,7 +68,7 @@
         </div>
     </div>
 
-     <button class="ui button" {{action 'save' selectedStudent.id}}>Save</button>
+     <button class="ui button" {{action 'save' selectedStudent.number}}>Save</button>
 
   <button class="ui button" {{action 'cancel' selectedStudent.number}}> Cancel </button>
 
@@ -76,6 +76,7 @@
 
 {{else}}
 
+<form class="ui form">
  <div class="ui stackable two column grid container">
         <div class="column"> 
             <div class="ui stackable three column grid">
@@ -131,13 +132,13 @@
                 <div class="right floated ten wide column" style="border: 1px solid black;">
 
                <img src={{imgUrl}} alt="Picture Of Student">
-               
+
                 </div>
             </div>
         </div>
     </div>
 
  <button class="ui button" {{action 'edit'}}> Edit </button>
-
+</form>
 
 {{/if}}
