@@ -6,25 +6,25 @@
             <i class="edit icon"></i>
             Save
         </a>
-        <a class="item disabled" > 
+        <a  class="item disabled" > 
             <i class="undo icon"></i>
             Undo
         </a>
-        <a class="item disabled" > 
+        <a  class="item disabled" > 
             <i class="step backward icon"></i>
             First Record
         </a>
-        <a class="item disabled" > 
+        <a  class="item disabled" > 
             <i class="caret left icon"></i>
             Previous Record
         </a>
              
 
-        <a class="item disabled" > 
+        <a  class="item disabled" > 
             Next Record
             <i class="caret right icon"></i>
         </a>
-        <a class="item disabled" > 
+        <a  class="item disabled" > 
             Last Record
             <i class="step forward icon"></i>
         </a>
@@ -71,29 +71,29 @@
 <nav>
     <div class="ui inverted menu">
 
-        <a  class= "item" > 
+        <a  {{action 'saveStudent'}}  class= "item" > 
             <i class="edit icon"></i>
             Save
         </a>
-        <a class="item" > 
+        <a {{action 'undoChange'}} class="item" > 
             <i class="undo icon"></i>
             Undo
         </a>
-        <a class="item" > 
+        <a {{action 'firstRecord'}} class="item" > 
             <i class="step backward icon"></i>
             First Record
         </a>
-        <a class="item" > 
+        <a {{action 'prevRecord'}} class="item" > 
             <i class="caret left icon"></i>
             Previous Record
         </a>
              
 
-        <a class="item" > 
+        <a {{action 'nextRecord'}} class="item" > 
             Next Record
             <i class="caret right icon"></i>
         </a>
-        <a class="item" > 
+        <a {{action 'lastRecord'}} class="item" > 
             Last Record
             <i class="step forward icon"></i>
         </a>
