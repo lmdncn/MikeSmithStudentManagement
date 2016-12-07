@@ -51,16 +51,23 @@ save: function(id) {
                 type: 'PUT',
                 data: data,
                 success: function(data) {
-                    alert('Load was performed.');
                 }
             });
-        }
+
+            this.set('isEditing', false);
+            this.set('selectedStudent.firstName',$('#first-name').val())
+            this.set('selectedStudent.lastName',$('#last-name').val())
+            this.set('selectedStudent.gender',$('#gender').val())
+            this.set('selectedStudent.DOB',$('#dob').val())
+            this.set('selectedStudent.residency',$('#residency').val())
+
+        },
+         cancel: function(number){
+        this.set('isEditing', false);
+    }
+
     },
 
 
-    cancel: function(number){
-        this.set('isEditing', false);
-    //   this.get('routing').transitionTo('home/'+number);
-    }
-
+   
 });
