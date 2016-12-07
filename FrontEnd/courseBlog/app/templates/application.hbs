@@ -2,10 +2,10 @@
    
    <header >      
        
-       {{#link-to 'home'}}
     <img class="ui small centered  image" src="/assets/images/mikesmith.png">
       <h1>The Mike Smith Student Management System</h1> 
-      {{/link-to}}
+
+
       </header>
         
       <nav>
@@ -27,15 +27,7 @@
             <i class="caret left icon"></i>
             Previous Record
         </a>
-        
-
-            {{#link-to 'home'}}
-        <a class="item" >
-        
-        Student View
-         
-        </a>  {{/link-to}}
-     
+             
 
         <a class="item"> 
             Next Record
@@ -61,7 +53,8 @@
             <a class="item"> 
             <div class="ui search">
                 <div class="ui icon input">
-            <input type="text" class="prompt" placeholder="Student Id...">
+            {{!--<input type="text" class="prompt" placeholder="Student Id...">--}}
+    
             <i class="search icon"></i>
               </div>
               <div class="results"></div>
