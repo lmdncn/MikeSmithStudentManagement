@@ -48,9 +48,17 @@ export default Ember.Component.extend({
 
   firstRecord:function(){
     console.log("firstRecord");
-    /*($.get('http://localhost:3700/api/students', function(data){
-        console.log(data);
-    });*/
+
+    var storethingy = this;
+    $.get('http://localhost:3700/api/students', function(data){
+        storethingy.set('isEditing', false);
+        storethingy.set('selectedStudent.firstName', data[0].firstName)
+        storethingy.set('selectedStudent.lastName', data[0].lastName)
+        storethingy.set('selectedStudent.gender', data[0].gender)
+        storethingy.set('selectedStudent.DOB', data[0].DOB)
+        storethingy.set('selectedStudent.residency', data[0].residency)
+        storethingy.didReceiveAttrs();
+    });
 
   },
 
@@ -68,10 +76,18 @@ export default Ember.Component.extend({
 
   },
 
-lastRecord:function(){
+  lastRecord:function(){
     console.log("lastRecord");
-
-  
+    var storethingy = this;
+    $.get('http://localhost:3700/api/students', function(data){
+        storethingy.set('isEditing', false);
+        storethingy.set('selectedStudent.firstName', data[data.length - 1].firstName)
+        storethingy.set('selectedStudent.lastName', data[data.length - 1].lastName)
+        storethingy.set('selectedStudent.gender', data[data.length - 1].gender)
+        storethingy.set('selectedStudent.DOB', data[data.length - 1].DOB)
+        storethingy.set('selectedStudent.residency', data[data.length - 1].residency)
+        storethingy.didReceiveAttrs();
+    });
 
   }
 
