@@ -6,18 +6,26 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
   routing: Ember.inject.service('-routing'),
 
+
+searchId : Number,
+
+
+
+
+
   actions: {
-  searchStudent:function(){
-    console.log("Searching");
+  setSearch:function(){
+    console.log("Set Search");
 
     var temp =  $('#search').val();
     if(temp >10000){
-      this.get('routing').transitionTo('/home/'+ temp);
+     
+     this.set('searchId',temp);
 
   }
   }
+  
   }
-
 
 // doSearch: function() {
 // // the current value of the text field

@@ -1,4 +1,10 @@
 
 
-<input type="number" id="search" class="prompt" placeholder="Student Id...">
-<button {{action 'searchStudent'}}>Search!</button>
+
+
+{{input type="number" value=searchId placeholder="Student Id..." id="search" class="prompt" focus-out="setSearch"}}
+
+
+  {{#link-to 'home' searchId tagName="button"}}Search!{{/link-to}}
+  
+{{!--<button {{action 'searchStudent'}}>Search!</button>--}}
