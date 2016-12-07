@@ -67,7 +67,7 @@
         </div>
     </div>
 
-     <button class="ui button" {{action 'save' selectedStudent.number}}>Save</button>
+     <button id="save-button" class="ui button" {{action 'save' selectedStudent.number}}>Save</button>
 
   <button id="cancel-button" class="ui button" {{action 'cancel' selectedStudent.number}}> Cancel </button>
 
@@ -138,6 +138,7 @@
     </div>
 
  <button id="edit-button" class="ui button" {{action 'edit'}}> Edit </button>
+  <button id="pic-button" class="ui basic button" {{action 'cancel'}}> Refresh </button>
 </form>
 
 {{/if}}

@@ -70,6 +70,7 @@ save: function(id) {
         },
          cancel: function(number){
         this.set('isEditing', false);
+         this.didReceiveAttrs();
         
     }
 

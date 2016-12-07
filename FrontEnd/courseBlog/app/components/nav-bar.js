@@ -10,31 +10,33 @@ export default Ember.Component.extend({
 
   saveStudent:function(id){
 
-    var data = {
-      number: id,
-      firstName: $('#first-name').val(),
-      lastName: $('#last-name').val(),
-      gender: $('#gender').val(),
-      DOB: $('#dob').val(),
-      residency: $('#residency').val()
-    };
+    $('#save-button').trigger('click');
 
-    $.ajax({
-      url: 'http://localhost:3700/api/students/' + id,
-      type: 'PUT',
-      data: data,
-      success: function(data) {
-      }
-    });
+    // var data = {
+    //   number: id,
+    //   firstName: $('#first-name').val(),
+    //   lastName: $('#last-name').val(),
+    //   gender: $('#gender').val(),
+    //   DOB: $('#dob').val(),
+    //   residency: $('#residency').val()
+    // };
 
-    this.set('isEditing', false);
-    this.set('selectedStudent.firstName',$('#first-name').val())
-    this.set('selectedStudent.lastName',$('#last-name').val())
-    this.set('selectedStudent.gender',$('#gender').val())
-    this.set('selectedStudent.DOB',$('#dob').val())
-    this.set('selectedStudent.residency',$('#residency').val())
-    this.didReceiveAttrs();
-    $('#cancel-button').trigger('click');
+    // $.ajax({
+    //   url: 'http://localhost:3700/api/students/' + id,
+    //   type: 'PUT',
+    //   data: data,
+    //   success: function(data) {
+    //   }
+    // });
+
+    // this.set('isEditing', false);
+    // this.set('selectedStudent.firstName',$('#first-name').val())
+    // this.set('selectedStudent.lastName',$('#last-name').val())
+    // this.set('selectedStudent.gender',$('#gender').val())
+    // this.set('selectedStudent.DOB',$('#dob').val())
+    // this.set('selectedStudent.residency',$('#residency').val())
+    // this.didReceiveAttrs();
+    // $('#pic-button').trigger('click');
 
   },
 
@@ -61,6 +63,8 @@ export default Ember.Component.extend({
     this.set('selectedStudent.DOB',temp.DOB)
     this.set('selectedStudent.residency',temp.residency)
     this.didReceiveAttrs();
+    
+    $('#pic-button').trigger('click');
     $('#cancel-button').trigger('click');
 
   },
@@ -78,6 +82,9 @@ export default Ember.Component.extend({
         storethingy.set('selectedStudent.DOB', data[0].DOB)
         storethingy.set('selectedStudent.residency', data[0].residency)
         storethingy.didReceiveAttrs();
+
+        $('#pic-button').trigger('click');
+        $('#cancel-button').trigger('click');
     });
 
   },
@@ -93,7 +100,11 @@ export default Ember.Component.extend({
 
         for(var i = 0; i < data.length; i++){
 
-          if(data[i].number === currNum) {
+          if(data[i].number == currNum) {
+            if(i==0){
+              alert("This is the first Student!");
+              return;
+            }
             prevIndex = i - 1;
             break;
           }
@@ -109,12 +120,18 @@ export default Ember.Component.extend({
         storethingy.set('selectedStudent.residency', data[prevIndex].residency)
         storethingy.didReceiveAttrs();
 
+        $('#pic-button').trigger('click');
+        $('#cancel-button').trigger('click');
+
     });
 
   },
 
   nextRecord:function(){
-    //console.log("nextRecord");
+
+    console.log("nextRecord");
+
+  
 
     var storethingy = this;
     $.get('http://localhost:3700/api/students', function(data){
@@ -122,9 +139,16 @@ export default Ember.Component.extend({
         let currNum = storethingy.get('selectedStudent.number');
         let nextIndex;
 
+          console.log(currNum);
+
         for(var i = 0; i < data.length; i++){
 
-          if(data[i].number === currNum) {
+          if(i+1==data.length){
+              alert("This is the last Student!");
+              return;
+            }
+
+          if(data[i].number == currNum) {
             nextIndex = i + 1;
             break;
           }
@@ -132,14 +156,16 @@ export default Ember.Component.extend({
        }
         
         storethingy.set('isEditing', false);
-        storethingy.set('selectedStudent.number', data[nextIndex].number)
+        storethingy.set('selectedStudent.number', data[nextIndex].number);
         storethingy.set('selectedStudent.firstName', data[nextIndex].firstName)
         storethingy.set('selectedStudent.lastName', data[nextIndex].lastName)
         storethingy.set('selectedStudent.gender', data[nextIndex].gender)
         storethingy.set('selectedStudent.DOB', data[nextIndex].DOB)
         storethingy.set('selectedStudent.residency', data[nextIndex].residency)
-        storethingy.didReceiveAttrs();
+    
 
+        $('#pic-button').trigger('click');
+        $('#cancel-button').trigger('click');
     });
   
 
@@ -157,6 +183,9 @@ export default Ember.Component.extend({
         storethingy.set('selectedStudent.DOB', data[data.length - 1].DOB)
         storethingy.set('selectedStudent.residency', data[data.length - 1].residency)
         storethingy.didReceiveAttrs();
+
+        $('#pic-button').trigger('click');
+        $('#cancel-button').trigger('click');
     });
 
   }
