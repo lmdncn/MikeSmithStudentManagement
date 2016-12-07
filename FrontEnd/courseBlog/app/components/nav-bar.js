@@ -38,6 +38,7 @@ export default Ember.Component.extend({
     this.set('selectedStudent.DOB',$('#dob').val())
     this.set('selectedStudent.residency',$('#residency').val())
     this.didReceiveAttrs();
+    $('#cancel-button').trigger('click');
 
   },
 

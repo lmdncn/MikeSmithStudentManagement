@@ -69,7 +69,7 @@
 
      <button class="ui button" {{action 'save' selectedStudent.number}}>Save</button>
 
-  <button class="ui button" {{action 'cancel' selectedStudent.number}}> Cancel </button>
+  <button id="cancel-button" class="ui button" {{action 'cancel' selectedStudent.number}}> Cancel </button>
 
 </form>
 
@@ -137,7 +137,7 @@
         </div>
     </div>
 
- <button class="ui button" {{action 'edit'}}> Edit </button>
+ <button id="edit-button" class="ui button" {{action 'edit'}}> Edit </button>
 </form>
 
 {{/if}}
