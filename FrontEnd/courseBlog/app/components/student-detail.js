@@ -31,38 +31,36 @@ export default Ember.Component.extend({
       this.set('isEditing', true);
     },
 
-    save: function(id){
-      this.set('isEditing', false);
-      var myStore = this.get('store');
+save: function(id) {
 
+            console.log($('#first-name').val());
 
-      var self = this;
-      myStore.findRecord('student',id).then(function(put) {
-        put.set('fistName',self.get('selectedStudent.fistName'));
-        put.set('lastName', self.get('selectedStudent.lastName'));
-        put.set('DOB', self.get('selectedStudent.DOB'));
-        put.set('residency', self.get('selectedStudent.residency'));
-        put.set('gender', self.get('selectedStudent.gender'));
-        put.save();  // => PATCH to /puts/:put_id
-      });
+            var data = {
+                number: id,
+                firstName: $('#first-name').val(),
+                lastName: $('#last-name').val(),
+                gender: $('#gender').val(),
+                DOB: $('#dob').val(),
+                residency: $('#residency').val()
+            };
+            
+            console.log(JSON.stringify(data));
 
-
-      this.set('isEditing', false);
-      this.get('routing').transitionTo('home' );
+            $.ajax({
+                url: 'http://localhost:3700/api/students/' + id,
+                type: 'PUT',
+                data: data,
+                success: function(data) {
+                    alert('Load was performed.');
+                }
+            });
+        }
     },
+
 
     cancel: function(number){
         this.set('isEditing', false);
     //   this.get('routing').transitionTo('home/'+number);
     }
-
-  }
-
-
-
-
-
-
-
 
 });
