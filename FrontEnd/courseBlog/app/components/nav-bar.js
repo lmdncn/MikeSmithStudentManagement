@@ -9,8 +9,6 @@ export default Ember.Component.extend({
   actions: {
 
   saveStudent:function(id){
-    console.log("saveStudent");
-    console.log($('#first-name').val());
 
     var data = {
       number: id,
@@ -20,8 +18,6 @@ export default Ember.Component.extend({
       DOB: $('#dob').val(),
       residency: $('#residency').val()
     };
-            
-    console.log(JSON.stringify(data));
 
     $.ajax({
       url: 'http://localhost:3700/api/students/' + id,
