@@ -53,12 +53,12 @@ export default Ember.Component.extend({
     var storethingy = this;
     $.get('http://localhost:3700/api/students', function(data){
         storethingy.set('isEditing', false);
-        storethingy.set('selectedStudent.number', data[20].number)
-        storethingy.set('selectedStudent.firstName', data[20].firstName)
-        storethingy.set('selectedStudent.lastName', data[20].lastName)
-        storethingy.set('selectedStudent.gender', data[20].gender)
-        storethingy.set('selectedStudent.DOB', data[20].DOB)
-        storethingy.set('selectedStudent.residency', data[20].residency)
+        storethingy.set('selectedStudent.number', data[0].number)
+        storethingy.set('selectedStudent.firstName', data[0].firstName)
+        storethingy.set('selectedStudent.lastName', data[0].lastName)
+        storethingy.set('selectedStudent.gender', data[0].gender)
+        storethingy.set('selectedStudent.DOB', data[0].DOB)
+        storethingy.set('selectedStudent.residency', data[0].residency)
         storethingy.didReceiveAttrs();
     });
 
