@@ -1,0 +1,142 @@
+{{#if noNav}}
+ <nav>
+    <div class="ui inverted menu">
+
+        <a  class= "item disabled" > 
+            <i class="edit icon"></i>
+            Save
+        </a>
+        <a class="item disabled" > 
+            <i class="undo icon"></i>
+            Undo
+        </a>
+        <a class="item disabled" > 
+            <i class="step backward icon"></i>
+            First Record
+        </a>
+        <a class="item disabled" > 
+            <i class="caret left icon"></i>
+            Previous Record
+        </a>
+             
+
+        <a class="item disabled" > 
+            Next Record
+            <i class="caret right icon"></i>
+        </a>
+        <a class="item disabled" > 
+            Last Record
+            <i class="step forward icon"></i>
+        </a>
+
+         {{#link-to 'list'}}
+        <a class="item"> 
+            All Records
+            <i class="list layout icon"></i>
+        </a>
+        {{/link-to}}
+
+
+
+        
+        <div class="right menu">
+
+            <a class="item"> 
+            <div class="ui search">
+                <div class="ui icon input">
+
+            {{search-button}}
+            
+            <i class="search icon"></i>
+              </div>
+              <div class="results"></div>
+            </div>
+
+        </a>
+
+              {{#link-to 'about' class="button"}}
+            <a class="item"> 
+               
+                <i class="help circle icon"></i>
+                Help
+            </a>
+               {{/link-to}}
+        </div>
+
+     
+    </div>
+    </nav>
+
+    {{else}}
+<nav>
+    <div class="ui inverted menu">
+
+        <a  class= "item" > 
+            <i class="edit icon"></i>
+            Save
+        </a>
+        <a class="item" > 
+            <i class="undo icon"></i>
+            Undo
+        </a>
+        <a class="item" > 
+            <i class="step backward icon"></i>
+            First Record
+        </a>
+        <a class="item" > 
+            <i class="caret left icon"></i>
+            Previous Record
+        </a>
+             
+
+        <a class="item" > 
+            Next Record
+            <i class="caret right icon"></i>
+        </a>
+        <a class="item" > 
+            Last Record
+            <i class="step forward icon"></i>
+        </a>
+
+         {{#link-to 'list'}}
+        <a class="item"> 
+            All Records
+            <i class="list layout icon"></i>
+        </a>
+        {{/link-to}}
+
+
+
+        
+        <div class="right menu">
+
+            <a class="item"> 
+            <div class="ui search">
+                <div class="ui icon input">
+
+            {{search-button}}
+            
+            <i class="search icon"></i>
+              </div>
+              <div class="results"></div>
+            </div>
+
+        </a>
+
+              {{#link-to 'about' class="button"}}
+            <a class="item"> 
+               
+                <i class="help circle icon"></i>
+                Help
+            </a>
+               {{/link-to}}
+        </div>
+
+     
+    </div>
+    </nav>
+
+
+
+
+    {{/if}}
